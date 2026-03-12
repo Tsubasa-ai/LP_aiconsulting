@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#002A49">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>AI活用コンサルティング 顧問契約 ご提案｜渡邊 翼</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:    #002A49;
+      --primary-d:  #001A2E;
+      --secondary:  #0089AC;
+      --secondary-l:#00B4E0;
+      --tertiary:   #D2B9BB;
+      --accent:     #FBBC04;
+      --accent-l:   #FFD54F;
+      --bg:         #F2F4F8;
+      --text:       #1A1A1A;
+      --muted:      #5A6475;
+      --card-bg:    rgba(255,255,255,0.85);
+      --radius:     18px;
+      --radius-sm:  12px;
+      --shadow:     0 4px 24px rgba(0,42,73,0.08);
+      --shadow-lg:  0 8px 40px rgba(0,42,73,0.12);
+      --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      font-size: 15px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── HEADER / HERO ── */
+    header {
+      background: linear-gradient(160deg, var(--primary-d) 0%, var(--primary) 40%, #004060 100%);
+      color: #fff;
+      padding: 56px 24px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      right: -30%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,137,172,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(251,188,4,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    header .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-l));
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 12px rgba(251,188,4,0.35);
+      animation: pulse-badge 2.5s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 2px 12px rgba(251,188,4,0.35); }
+      50% { box-shadow: 0 2px 24px rgba(251,188,4,0.55); }
+    }
+    header h1 {
+      font-size: clamp(24px, 6vw, 36px);
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+    header .subtitle {
+      font-size: 13px;
+      opacity: 0.6;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 32px 16px 80px;
+    }
+
+    /* ── SECTION ── */
+    section { margin-bottom: 24px; }
+
+    /* ── GLASS CARD ── */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.6);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .card:active {
+      transform: scale(0.995);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      background: rgba(0,137,172,0.08);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--tertiary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2 .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 8px;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ── PRICE BLOCK ── */
+    .price-block {
+      background: linear-gradient(160deg, var(--primary-d) 0%, var(--primary) 50%, #003D5C 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 36px 24px 32px;
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .price-block::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0,137,172,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .price-block .label {
+      font-size: 12px;
+      opacity: 0.65;
+      margin-bottom: 6px;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      position: relative;
+      z-index: 1;
+    }
+    .price-block .price {
+      font-size: clamp(40px, 10vw, 56px);
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1.1;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 12px rgba(251,188,4,0.3);
+    }
+    .price-block .price span {
+      font-size: 16px;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+    .price-block .sub {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-top: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .price-block .total {
+      display: inline-block;
+      margin-top: 18px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      padding: 8px 22px;
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── SERVICE LIST ── */
+    .service-item {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .service-item:last-child { border-bottom: none; }
+    .service-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, rgba(0,137,172,0.1), rgba(0,137,172,0.05));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-top: 2px;
+    }
+    .service-content { flex: 1; min-width: 0; }
+    .service-content strong {
+      display: block;
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+    .service-content p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── RULE TABLE ── */
+    .rule-grid {
+      display: grid;
+      gap: 8px;
+    }
+    .rule-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      transition: background var(--transition);
+    }
+    .rule-item .rule-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: rgba(0,137,172,0.1);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+    .rule-item .key {
+      color: var(--muted);
+      font-weight: 500;
+      min-width: 72px;
+      flex-shrink: 0;
+      font-size: 12px;
+    }
+    .rule-item .val { color: var(--text); font-size: 13px; }
+
+    /* ── HIGHLIGHT CARD ── */
+    .highlight {
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(135deg, #FFFBEE, #FFF8E1);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 16px 18px;
+      font-size: 13px;
+      color: var(--primary);
+      margin-bottom: 14px;
+      transition: transform var(--transition);
+    }
+    .highlight:active { transform: scale(0.98); }
+    .highlight strong {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    /* ── CHECK LIST ── */
+    ul.check { list-style: none; }
+    ul.check li {
+      padding: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    ul.check li:last-child { border-bottom: none; }
+    ul.check li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-l));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    ul.check li::after {
+      content: "✓";
+      position: absolute;
+      left: 5px;
+      top: 14px;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 20px;
+    }
+    ul.check li strong { color: var(--primary); }
+
+    /* ── OPTION CARD ── */
+    .option-card {
+      border: 2px solid rgba(0,137,172,0.2);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      background: linear-gradient(135deg, rgba(0,137,172,0.03), rgba(0,137,172,0.01));
+      transition: border-color var(--transition);
+    }
+    .option-card .option-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+    .option-card .option-price {
+      font-size: 26px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-l));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 6px 0 4px;
+    }
+
+    /* ── CTA ── */
+    .cta-card {
+      background: linear-gradient(160deg, var(--primary-d), var(--primary), #003D5C);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 36px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,137,172,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-card p {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .deadline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-l));
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 32px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 20px rgba(251,188,4,0.35);
+      position: relative;
+      z-index: 1;
+      animation: pulse-cta 2s ease-in-out infinite;
+    }
+    @keyframes pulse-cta {
+      0%, 100% { box-shadow: 0 4px 20px rgba(251,188,4,0.35); transform: scale(1); }
+      50% { box-shadow: 0 4px 28px rgba(251,188,4,0.5); transform: scale(1.02); }
+    }
+    .cta-note {
+      font-size: 12px;
+      opacity: 0.5;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── PERSONAL NOTE ── */
+    .personal {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 2;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+    .personal strong { color: var(--primary); }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 8px 0;
+      font-size: 10px;
+      color: var(--tertiary);
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--tertiary), transparent);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      padding: 28px 16px;
+      opacity: 0.7;
+    }
+
+    /* ── MOBILE OPTIMIZATION ── */
+    @media (max-width: 480px) {
+      header { padding: 48px 20px 44px; }
+      main { padding: 24px 14px 72px; }
+      .card { padding: 24px 18px; border-radius: 16px; }
+      .price-block { padding: 32px 20px 28px; border-radius: 16px; }
+      .rule-item .key { min-width: 64px; }
+      .service-icon { width: 36px; height: 36px; font-size: 16px; }
+      h2 { font-size: 16px; }
+      .option-card { padding: 18px 16px; }
+      .cta-card { padding: 32px 20px; border-radius: 16px; }
+    }
+
+    @media (max-width: 360px) {
+      header h1 { font-size: 22px; }
+      main { padding: 20px 12px 64px; }
+      .card { padding: 20px 16px; }
+      .service-item { gap: 10px; }
+    }
+
+    /* ── SAFE AREA (NOTCH) ── */
+    @supports (padding-top: env(safe-area-inset-top)) {
+      header { padding-top: calc(48px + env(safe-area-inset-top)); }
+      footer { padding-bottom: calc(28px + env(safe-area-inset-bottom)); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge reveal visible">⚡ モニタープラン・5名限定</div>
+  <h1 class="reveal visible">AI活用コンサルティング<br>顧問契約 ご提案</h1>
+  <p class="subtitle reveal visible">渡邊 翼 より　2026年3月11日</p>
+</header>
+
+<main>
+
+  <!-- 料金 -->
+  <div class="price-block reveal">
+    <div class="label">月額（モニター特別価格）</div>
+    <div class="price">¥11,000<span>/月</span></div>
+    <div class="sub">モニター期間：6ヶ月間</div>
+    <div class="total">💎 総額 66,000円（税込）</div>
+  </div>
+
+  <div class="section-divider">◆</div>
+
+  <!-- サービス内容 -->
+  <section class="card reveal">
+    <div class="section-label">💼 Service</div>
+    <h2><span class="icon">📋</span>サービス内容</h2>
+    <div class="service-item">
+      <div class="service-icon">🎥</div>
+      <div class="service-content">
+        <strong>月1回 Zoom個別セッション（60分）</strong>
+        <p>AI活用の壁打ち・進捗確認・次の行動設計。初回で行動指標を一緒に決めます。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">📚</div>
+      <div class="service-content">
+        <strong>AI講座アーカイブ（特典・無料提供）</strong>
+        <p>ChatGPT・Claude等の基本活用から業務効率化の実践例まで。武田さんの事業にそのまま使える内容です。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">💬</div>
+      <div class="service-content">
+        <strong>Googleチャットサポート（平日・1日3回まで）</strong>
+        <p>困ったときにすぐ聞ける非同期サポート。アドバイスに特化したシンプルな設計です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- チャットルール -->
+  <section class="card reveal">
+    <div class="section-label">📐 Support Rules</div>
+    <h2><span class="icon">⚙️</span>チャットサポートのルール</h2>
+    <div class="rule-grid">
+      <div class="rule-item">
+        <div class="rule-icon">📅</div>
+        <span class="key">対応日</span>
+        <span class="val">平日（月〜金・祝日除く）</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">🕘</div>
+        <span class="key">対応時間</span>
+        <span class="val">9:00〜18:00</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">🔢</div>
+        <span class="key">1日の回数</span>
+        <span class="val">最大3回まで</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">🔄</div>
+        <span class="key">1回の定義</span>
+        <span class="val">質問→回答の1往復</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">📌</div>
+        <span class="key">サポート範囲</span>
+        <span class="val">アドバイスのみ（制作代行は対象外）</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider">◆</div>
+
+  <!-- モニター初期特典 -->
+  <section class="card reveal">
+    <div class="section-label">🎁 Early Member Benefits</div>
+    <h2><span class="icon">🏆</span>モニター初期特典（5名限定）</h2>
+    <div class="highlight">
+      <strong>🛡️ 値上げ猶予</strong>
+      価格改定時も1年間は現行価格（11,000円）を維持します。
+    </div>
+    <div class="highlight">
+      <strong>👥 限定グループセッション優先参加権</strong>
+      新規顧客が入れない初期メンバー限定セッションに優先参加できます。
+    </div>
+  </section>
+
+  <!-- モニターとしてのお願い -->
+  <section class="card reveal">
+    <div class="section-label">🤝 Request</div>
+    <h2><span class="icon">✉️</span>モニターとしてのお願い</h2>
+    <ul class="check">
+      <li>効果を実感いただけましたら、知人経営者の方へのご紹介</li>
+      <li>事例として名前入りで掲載させていただくご許可</li>
+      <li>6ヶ月終了後のフィードバック</li>
+    </ul>
+  </section>
+
+  <!-- オプション -->
+  <section class="card reveal">
+    <div class="section-label">🔧 Option</div>
+    <h2><span class="icon">🖥️</span>ハンズオン実装セッション</h2>
+    <div class="option-card">
+      <div class="option-label">スポット追加オプション</div>
+      <div class="option-price">¥20,000 / 90分</div>
+      <ul class="check" style="margin-top:10px;">
+        <li>Zoom画面共有でリアルタイムにナビゲート</li>
+        <li>月3枠限定・顧問契約者のみ</li>
+        <li>「一緒に作る時間」。実際に手を動かすのは武田さんご自身です</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-divider">◆</div>
+
+  <!-- 個人メッセージ -->
+  <section class="card reveal">
+    <div class="section-label">💌 From Tsubasa</div>
+    <h2><span class="icon">✍️</span>最後に</h2>
+    <p class="personal">
+      正直に申し上げると、これは僕が経営者・事業主の方に提供する<strong>AI活用コンサルの「実績第一号」</strong>です。<br><br>
+      だからこそ、11,000円というモニター価格でご提供しています。<br>
+      6ヶ月一緒に走りながら、武田さんの事業に本当に役立つ形を一緒に見つけていきたいと思っています。
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-card reveal">
+    <p>ご意向をお知らせください</p>
+    <div class="deadline">📩 3月13日（金）23:59 まで</div>
+    <p style="font-size:13px;opacity:0.85;position:relative;z-index:1;">「検討します」でも「やめておきます」でも、<br>一言いただけると嬉しいです。</p>
+    <p class="cta-note">不明な点はいつでもお気軽にどうぞ</p>
+  </div>
+
+</main>
+
+<footer>
+  渡邊 翼 — AI活用コンサルティング
+</footer>
+
+<script>
+// Intersection Observer for scroll reveal animations
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
+</body>
+</html>
